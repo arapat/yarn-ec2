@@ -37,11 +37,11 @@ def parse_args():
         "-i", "--identity-file",
         help="SSH private key file to use for logging into instances")
     parser.add_option(
-        "-t", "--instance-type", default="c3.2xlarge",
-        help="Type of instance to launch (default: m3.xlarge). " +
+        "-t", "--instance-type", default="r3.xlarge",
+        help="Type of instance to launch (default: r3.xlarge). " +
              "WARNING: must be 64-bit; small instances won't work")
     parser.add_option(
-        "-r", "--region", default="us-west-2",
+        "-r", "--region", default="us-east-1",
         help="EC2 region zone to launch instances in")
     parser.add_option(
         "-z", "--zone", default="",

@@ -42,8 +42,8 @@ master_r_packages = [
 ]
 
 # download link of hadoop.
-hadoop_url = 'http://apache.claz.org/hadoop/common/hadoop-2.8.0/hadoop-2.8.0.tar.gz'
-hadoop_dir = 'hadoop-2.8.0'
+hadoop_url = 'https://archive.apache.org/dist/hadoop/core/hadoop-2.8.4/hadoop-2.8.4.tar.gz'
+hadoop_dir = 'hadoop-2.8.4'
 
 # customized installation script.
 # See optional installation scripts for options.
@@ -86,11 +86,11 @@ def install_r():
 
 
 def install_spark():
-    run('wget https://www.apache.org/dist/spark/spark-2.1.1/spark-2.1.1-bin-hadoop2.7.tgz')
-    run('tar xf spark-2.1.1-bin-hadoop2.7.tgz')
-    run('rm -rf spark-2.1.1-bin-hadoop2.7.tgz')
+    run('wget https://www.apache.org/dist/spark/spark-2.1.3/spark-2.1.3-bin-hadoop2.7.tgz')
+    run('tar xf spark-2.1.3-bin-hadoop2.7.tgz')
+    run('rm -rf spark-2.1.3-bin-hadoop2.7.tgz')
     with open('.bashrc', 'a') as fo:
-        fo.write('\nexport PATH=${PATH}:spark-2.1.1-bin-hadoop2.7\n')
+        fo.write('\nexport PATH=${PATH}:spark-2.1.3-bin-hadoop2.7\n')
 
 
 def install_xgboost():
@@ -276,13 +276,13 @@ def install_hadoop(is_master):
         fo.close()
 
     def run_install():
-        if not os.path.exists('hadoop-2.8.0'):
+        if not os.path.exists('hadoop-2.8.4'):
             run('wget %s' % hadoop_url)
-            run('tar xf hadoop-2.8.0.tar.gz')
-            run('rm -f hadoop-2.8.0.tar.gz')
+            run('tar xf hadoop-2.8.4.tar.gz')
+            run('rm -f hadoop-2.8.4.tar.gz')
             global HADOOP_HOME
         if HADOOP_HOME is None:
-            HADOOP_HOME = os.path.abspath('hadoop-2.8.0')
+            HADOOP_HOME = os.path.abspath('hadoop-2.8.4')
         env = [('HADOOP_HOME', HADOOP_HOME)]
         env += [('HADOOP_PREFIX', HADOOP_HOME)]
         env += [('HADOOP_MAPRED_HOME', HADOOP_HOME)]
